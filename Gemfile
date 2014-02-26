@@ -1,8 +1,8 @@
-# A sample Gemfile
 source "https://rubygems.org"
 
-gem "test-kitchen"
-gem "kitchen-docker"
-gem "librarian-chef"
-
 gem "chefspec"
+gem "emeril"
+gem "foodcritic", "~> 3.0"
+gem "kitchen-vagrant"
+gem "librarian-chef"
+gem "test-kitchen"
