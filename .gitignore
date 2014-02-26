@@ -3,3 +3,5 @@ Cheffile.lock
 .kitchen/
 .kitchen.local.yml
 .librarian
+tmp/
+.bundle/

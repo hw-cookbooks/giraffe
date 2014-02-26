@@ -11,5 +11,8 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[apt]
+      - recipe[graphite]
       - recipe[giraffe]
+      - recipe[test]
     attributes:

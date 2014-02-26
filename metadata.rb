@@ -6,3 +6,5 @@ description      'Manages Giraffe, a Graphite dashboard with a long neck'
 version          '0.1.0'
 
 supports 'ubuntu'
+
+depends 'git'

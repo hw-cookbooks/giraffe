@@ -1,0 +1,22 @@
+var graphite_url = "<%= @graphite_url %>";
+
+var dashboards = <%= @dashboards %>;
+
+var scheme = [
+              '#423d4f',
+              '#4a6860',
+              '#848f39',
+              '#a2b73c',
+              '#ddcb53',
+              '#c5a32f',
+              '#7d5836',
+              '#963b20',
+              '#7c2626',
+              ].reverse();
+
+function relative_period() { return (typeof period == 'undefined') ? 1 : parseInt(period / 7) + 1; }
+function entire_period() { return (typeof period == 'undefined') ? 1 : period; }
+function at_least_a_day() { return entire_period() >= 1440 ? entire_period() : 1440; }
+
+function stroke(color) { return color.brighter().brighter() }
+function format_pct(n) { return d3.format(",f")(n) + "%" }
