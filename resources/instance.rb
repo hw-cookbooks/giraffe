@@ -22,4 +22,3 @@ default_action :create
 attribute :path, :kind_of => String, :name_attribute => true
 attribute :graphite_url, :kind_of => [String, NilClass]
 attribute :dashboards, :kind_of => Array, :default => []
-attribute :graphite_url, :kind_of => [String, NilClass]
