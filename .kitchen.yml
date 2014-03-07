@@ -13,7 +13,7 @@ suites:
     run_list:
       - recipe[apt]
       - recipe[giraffe]
-      - recipe[test]
+      - recipe[giraffe_wrapper]
     attributes:
       apache:
         listen_ports: ["80", "8080"]

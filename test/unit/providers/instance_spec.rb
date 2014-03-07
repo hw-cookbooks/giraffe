@@ -24,8 +24,8 @@ describe "giraffe_instance provider" do
 
     it "renders a template for dashboards.js" do
       expect(chef_run).to create_template("/somewhere/else/dashboards.js").with(
-        cookbook: "giraffe",
-        source: "dashboards.js.erb",
+        cookbook: "giraffe_wrapper",
+        source: "a-dashboards-file",
       )
     end
 

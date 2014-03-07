@@ -8,4 +8,4 @@ cookbook 'apt'
 cookbook 'giraffe', path: '.'
 
 cookbook 'fixtures', path: 'test/unit/fixtures'
-cookbook 'test', path: 'test/integration/cookbooks/test'
+cookbook 'giraffe_wrapper', path: 'examples/giraffe_wrapper'
