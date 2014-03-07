@@ -31,16 +31,16 @@ action :create do
   new_resource.updated_by_last_action(d.updated_by_last_action?)
 
   g = git new_resource.path do
-    repository "https://github.com/kenhub/giraffe.git"
-    revision "1.1.0"
+    repository new_resource.git_repository || node['giraffe']['git_repository'] 
+    revision new_resource.git_revision || node['giraffe']['git_revision']
     depth 1
     action :sync
   end
   new_resource.updated_by_last_action(g.updated_by_last_action?)
 
   t = template ::File.join(new_resource.path, "dashboards.js") do
-    cookbook "giraffe"
-    source "dashboards.js.erb"
+    cookbook new_resource.template_cookbook
+    source new_resource.template_source
     variables({
       graphite_url: new_resource.graphite_url,
       dashboards: JSON.pretty_generate(new_resource.dashboards),

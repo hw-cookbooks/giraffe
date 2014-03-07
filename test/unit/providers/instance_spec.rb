@@ -2,8 +2,10 @@ require_relative '../spec_helper'
 
 describe "giraffe_instance provider" do
   let(:chef_run) do
-    ChefSpec::Runner.new(step_into: ["giraffe_instance"]).
-      converge("fixtures::giraffe_instance")
+    ChefSpec::Runner.new(step_into: ["giraffe_instance"]){|node|
+      node.set['giraffe']['git_repository'] = "node_repo"
+      node.set['giraffe']['git_revision'] = "node_revision"
+    }.converge("fixtures::giraffe_instance")
   end
 
   context "for create action" do
@@ -16,8 +18,8 @@ describe "giraffe_instance provider" do
 
     it "clones the library with git" do
       expect(chef_run).to sync_git("/somewhere/else").with(
-        repository: "https://github.com/kenhub/giraffe.git",
-        revision: "1.1.0",
+        repository: "a-git-repo",
+        revision: "a-version",
         depth: 1,
       )
     end

@@ -22,3 +22,7 @@ default_action :create
 attribute :path, :kind_of => String, :name_attribute => true
 attribute :graphite_url, :kind_of => [String, NilClass]
 attribute :dashboards, :kind_of => Array, :default => []
+attribute :git_repository, :kind_of => String
+attribute :git_revision, :kind_of => String
+attribute :template_cookbook, :kind_of => String, :default => "giraffe"
+attribute :template_source, :kind_of => String, :default => "dashboards.js.erb"

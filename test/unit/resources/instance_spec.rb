@@ -2,7 +2,10 @@ require_relative '../spec_helper'
 
 describe "giraffe_instance resource" do
   let(:chef_run) do
-    ChefSpec::Runner.new.converge("fixtures::giraffe_instance")
+    ChefSpec::Runner.new{|node|
+      node.set['giraffe']['git_repository'] = "node_repo"
+      node.set['giraffe']['git_revision'] = "node_revision"
+    }.converge("fixtures::giraffe_instance")
   end
 
   context "for create action" do
@@ -13,7 +16,11 @@ describe "giraffe_instance resource" do
         dashboards: [
           { name: "awesome", refresh: 600 },
           { name: "notascool", refresh: 1600 },
-        ]
+        ],
+        git_repository: "a-git-repo",
+        git_revision: "a-version",
+        template_cookbook: "giraffe_wrapper",
+        template_source: "a-dashboards-file"
       )
     end
 
@@ -21,7 +28,11 @@ describe "giraffe_instance resource" do
       expect(chef_run).to create_giraffe_instance("/tmp/yep").with(
         path: "/tmp/yep",
         graphite_url: nil,
-        dashboards: []
+        dashboards: [],
+        git_repository: nil,
+        git_revision: nil,
+        template_cookbook: "giraffe",
+        template_source: "dashboards.js.erb"
       )
     end
   end
