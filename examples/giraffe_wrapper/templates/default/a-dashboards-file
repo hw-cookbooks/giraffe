@@ -1,4 +1,0 @@
-#test file supplied for chef-spec
-var graphite_url = "<%= @graphite_url %>";
-
-var dashboards = <%= @dashboards %>;

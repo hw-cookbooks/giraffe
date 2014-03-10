@@ -8,7 +8,7 @@ giraffe_instance "create-full" do
   git_repository "a-git-repo"
   git_revision "a-version"
   template_cookbook "giraffe_wrapper"
-  template_source "a-dashboards-file"
+  template_source "my-custom-dashboards.js.erb"
   action :create
 end
 
