@@ -53,8 +53,8 @@ This recipe installs git, a prerequisite for installing giraffe.
 
 ### <a name="lwrps-giraffe_instance-actions"></a> Actions
 
-| Action | Description               | Default |
-|--------|---------------------------|---------|
+| Action | Description	                                      | Default |
+|--------|----------------------------------------------------|---------|
 | create | Installs Giraffe via git, configures dashboards.js | Yes     |
 
 ### <a name="lwrps-giraffe_instance-vault-attributes"></a> Attributes
