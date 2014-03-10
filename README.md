@@ -26,6 +26,7 @@ The following platforms have been tested with this cookbook, meaning that the
 recipes run on these platforms without error:
 
 * ubuntu (12.04)
+* centos (6.4)
 
 Please [report][issues] any additional platforms so they can be added.
 
