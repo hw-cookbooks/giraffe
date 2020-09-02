@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: giraffe
+# Cookbook:: giraffe
 # Provider:: instance
 #
-# Copyright 2014, Heavy Water Software Inc.
+# Copyright:: 2014, Heavy Water Software Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,12 +17,6 @@
 # limitations under the License.
 #
 
-def whyrun_supported?
-  true
-end
-
-use_inline_resources
-
 action :create do
   d = directory ::File.dirname(new_resource.path) do
     recursive true
@@ -31,14 +25,14 @@ action :create do
   new_resource.updated_by_last_action(d.updated_by_last_action?)
 
   g = git new_resource.path do
-    repository new_resource.git_repository || node['giraffe']['git_repository'] 
+    repository new_resource.git_repository || node['giraffe']['git_repository']
     revision new_resource.git_revision || node['giraffe']['git_revision']
     depth 1
     action :sync
   end
   new_resource.updated_by_last_action(g.updated_by_last_action?)
 
-  t = template ::File.join(new_resource.path, "dashboards.js") do
+  t = template ::File.join(new_resource.path, 'dashboards.js') do
     cookbook new_resource.template_cookbook
     source new_resource.template_source
     variables({
