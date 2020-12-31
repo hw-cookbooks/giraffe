@@ -9,4 +9,3 @@ describe 'giraffe::default' do
     expect(chef_run).to include_recipe('git')
   end
 end
-
